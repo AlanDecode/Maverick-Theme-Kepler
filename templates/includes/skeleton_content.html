@@ -71,6 +71,10 @@
         <section id="comments">
             <div id="vcomments"></div>
         </section>
+        <script>
+            window.ValineOpt = {{ json.dumps(config.valine) }};
+            window.ValineOpt.path = window.location.pathname;
+        </script>
     {% endif %}
 
     <script>
