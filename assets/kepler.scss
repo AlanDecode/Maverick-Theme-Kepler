@@ -70,6 +70,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     color: $textColor;
+    overflow-y: scroll;
     > main {
         flex: 1;
     }
