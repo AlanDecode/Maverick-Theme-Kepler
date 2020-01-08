@@ -11,9 +11,11 @@ from Maverick.Utils import unify_joinpath, safe_read
 
 g_translation = None
 
+
 def match_route(current_route, route):
     if route == current_route:
         return 'current'
+
 
 def tr(str, locale="english"):
     """translation support
@@ -28,3 +30,8 @@ def tr(str, locale="english"):
 
     return g_translation.get(str, str)
 
+
+def filterPrefix(url: str):
+    """replace prefix with `/`, to fix Valine view counting
+    """
+    return url.replace(g_conf.site_prefix, "/")

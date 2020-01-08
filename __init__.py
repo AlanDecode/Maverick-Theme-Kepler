@@ -12,7 +12,7 @@ from Maverick.Template import Template, Pager
 from Maverick.Utils import unify_joinpath, copytree, logged_func, safe_write, gen_hash
 from Maverick.Content import Content, ContentList, group_by_category, group_by_tagname
 from Maverick.Config import Config
-from .utils import tr, match_route
+from .utils import tr, match_route, filterPrefix
 
 
 def render(conf, posts: ContentList, pages: ContentList):
@@ -61,6 +61,7 @@ class Kepler(Template):
         self._env.globals['len'] = len
         self._env.globals['build_sidebar'] = self.build_sidebar
         self._env.globals['match_route'] = match_route
+        self._env.globals['get_path'] = self._env.globals['get_path'] = filterPrefix
         self.gather_meta()
         self.build_content_tree()
 
